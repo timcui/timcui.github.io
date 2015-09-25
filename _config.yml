@@ -9,7 +9,7 @@ title:               Timcui
 tagline:             'A site to bibi'
 description:         'Write Anything Anywhere Anytime.'
 url:                 http://timcui.github.io
-baseurl:             ''
+baseurl:             'http://timcui.github.io/'
 paginate:            5
 
 # About/contact
