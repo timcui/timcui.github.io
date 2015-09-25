@@ -5,11 +5,11 @@ permalink:           pretty
 relative_permalinks: true
 
 # Setup
-title:               Timcui
-tagline:             'A site to bibi'
-description:         'Write Anything Anywhere Anytime.'
+title:               吧啦吧啦
+tagline:             '一个搬砖的'
+description:         '男，前端开发，关注Javascript和Nodejs，<a href="http://i.qq.com" target="_blank">@QQ空间</a>'
 url:                 http://timcui.github.io
-baseurl:             'http://timcui.github.io/'
+baseurl:             'http://timcui.github.io'
 paginate:            5
 
 # About/contact
