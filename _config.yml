@@ -5,9 +5,9 @@ permalink:           pretty
 relative_permalinks: true
 
 # Setup
-title:               吧啦吧啦
-tagline:             '一个搬砖的'
-description:         '男，前端开发，关注Javascript和Nodejs，<a href="http://i.qq.com" target="_blank">@QQ空间</a>'
+title:               Timcui
+tagline:             'One life to live ~~ focus & relex'
+description:         '男，前端工程师，关注Javascript和Nodejs，<a href="http://i.qq.com" target="_blank">@QQ空间</a>'
 url:                 http://timcui.github.io
 baseurl:             'http://timcui.github.io'
 paginate:            5
