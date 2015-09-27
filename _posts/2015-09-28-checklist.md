@@ -3,7 +3,7 @@ layout: post
 title: The Runtime Performance Checklist
 ---
 
-####A checklist to keep in mind for runtime performance.
+###A checklist to keep in mind for runtime performance.
 
 - Large invalidations of layout and styles
 - Layout Thrashing
