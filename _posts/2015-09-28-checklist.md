@@ -1,6 +1,8 @@
 ---
 layout: post
 title: The Runtime Performance Checklist
+category: work
+tag: [javascript, performance]
 ---
 
 ###A checklist to keep in mind for runtime performance.
