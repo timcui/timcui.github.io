@@ -6,10 +6,10 @@ relative_permalinks: true
 
 # Setup
 title:               Timcui
-tagline:             'A site to bibi'
-description:         'Write Anything Anywhere Anytime.'
+tagline:             'One life to live ~~ focus & relex'
+description:         '男，前端工程师，关注Javascript和Nodejs，<a href="http://i.qq.com" target="_blank">@QQ空间</a>'
 url:                 http://timcui.github.io
-baseurl:             ''
+baseurl:             'http://timcui.github.io'
 paginate:            5
 
 # About/contact
