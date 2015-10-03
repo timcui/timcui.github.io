@@ -6,7 +6,7 @@ relative_permalinks: true
 
 # Setup
 title:               Timcui
-tagline:             'One life to live ~~ focus & engaged & relex'
+tagline:             'One life to live ~~ focus & engaged & relax'
 description:         '男，前端工程师，关注Javascript和Nodejs，<a href="http://i.qq.com" target="_blank">@QQ空间</a>'
 url:                 http://timcui.github.io
 baseurl:             'http://timcui.github.io'
