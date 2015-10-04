@@ -11,4 +11,21 @@ iPhone6 plus打开H5页面客户端就直接闪退了，根据之前类似经验
 
 ###crash的原因
 
+###浏览器生成compositing layer原则
+- The layer has 3D or perspective transform CSS properties.
+- The layer is used by <video> element using accelerated video decoding.
+- The layer is used by a <canvas> element with a 3D context or accelerated 2D context.
+- The layer is used for a composited plugin, e.g. Flash or Silverlight.
+- The layer uses a CSS animation for its opacity or uses an animated webkit transform.
+- The layer uses accelerated CSS filters.
+- The layer has a descendant that is a compositing layer.
+- The layer has a sibling with a lower z-index which has a compositing layer (in other words the layer is rendered on top of a composited layer).
+
+[更多关于compositing layer][1]
+
 ###解决crash
+
+
+
+
+[1]: https://aerotwist.com/blog/on-translate3d-and-layer-creation-hacks/ "on-translate3d-and-layer-creation-hacks"
