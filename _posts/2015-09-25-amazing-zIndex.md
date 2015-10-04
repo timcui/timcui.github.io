@@ -13,6 +13,7 @@ iPhone6 plus打开H5页面客户端就直接闪退了，根据之前类似经验
 ![before][2]
 
 从图中可以看到三个很奇怪的渲染层，html(414 * 17804), .layout-body(398 * 17537), .layout-body(398 * 17538)。 这三个渲染层的尺寸都非常大，相当于几乎页面上所有的内容都重复渲染了4遍，这对比内存的占用想必不少，并且这三个渲染层的产生完全不符合预期。那就看看这三个渲染层是怎么产生的，然后再想办法消除。好在chrome给出了每个渲染层产生的原因：
+
 - html(414 * 17804)
 - .layout-body(398 * 17537)
 - .layout-body(398 * 17538): Secondary layer, home for a group of squashable content.
