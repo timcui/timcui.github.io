@@ -14,8 +14,8 @@ iPhone6 plus打开H5页面客户端就直接闪退了，根据之前类似经验
 
 ###浏览器生成compositing layer原则
 1. The layer has 3D or perspective transform CSS properties.
-2. The layer is used by <video> element using accelerated video decoding.
-3. The layer is used by a <canvas> element with a 3D context or accelerated 2D context.
+2. The layer is used by \<video\> element using accelerated video decoding.
+3. The layer is used by a \<canvas\> element with a 3D context or accelerated 2D context.
 4. The layer is used for a composited plugin, e.g. Flash or Silverlight.
 5. The layer uses a CSS animation for its opacity or uses an animated webkit transform.
 6. The layer uses accelerated CSS filters.
