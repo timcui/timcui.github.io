@@ -12,7 +12,12 @@ iPhone6 plus打开H5页面客户端就直接闪退了，根据之前类似经验
 ###crash的原因
 ![before][2]
 
-###浏览器生成compositing layer原则
+从图中可以看到三个很奇怪的渲染层，html(414 * 17804), .layout-body(398 * 17537), .layout-body(398 * 17538)。 这三个渲染层的尺寸都非常大，相当于几乎页面上所有的内容都重复渲染了4遍，这对比内存的占用想必不少，并且这三个渲染层的产生完全不符合预期。那就看看这三个渲染层是怎么产生的，然后再想办法消除。好在chrome给出了每个渲染层产生的原因：
+- html(414 * 17804)
+- .layout-body(398 * 17537)
+- .layout-body(398 * 17538): Secondary layer, home for a group of squashable content.
+
+###补习一下浏览器生成compositing layer原则
 1. The layer has 3D or perspective transform CSS properties.
 2. The layer is used by \<video\> element using accelerated video decoding.
 3. The layer is used by a \<canvas\> element with a 3D context or accelerated 2D context.
@@ -25,6 +30,7 @@ iPhone6 plus打开H5页面客户端就直接闪退了，根据之前类似经验
 [更多关于compositing layer][1]
 
 ###解决crash
+
 ![after][3]
 
 
