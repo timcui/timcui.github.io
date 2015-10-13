@@ -5,9 +5,9 @@ category: work
 tag: [javascript, crash, performance]
 ---
 
-> iPhone6 plus客户端闪退，只有iPhone6 plus客户端闪退，不管是在手Q里还是手空里打开活动页面都会闪退，是不是感觉很匪夷所思？但是真的遇到了！
+> iPhone6 plus上客户端闪退，只有iPhone6 plus上的客户端闪退，不管是手Q里还是手空里打开活动页面都会闪退，是不是感觉很匪夷所思？但是真的遇到了！
 
-iPhone6 plus打开H5页面客户端就直接闪退了，根据之前类似经验，可能是CSS3样式影响了浏览器的渲染层，产生了一些垃圾层，当这些垃圾层尺寸比较大的时候就会占用比较多的内存，尤其是在iPhone6 plus的大屏上，而iPhone6 plus的内存则只有1GB而已，这样就容易导致客户端crash。嗯，很完美的猜测，那是不是该验证一下。
+iPhone6 plus打开H5页面后所在客户端就直接闪退了，于是google了一下，大概有点眉目，可能是CSS3样式影响了浏览器的渲染层，产生了一些垃圾层，当这些垃圾层尺寸比较大的时候就会占用比较多的内存，尤其是在iPhone6 plus的大屏上，而iPhone6 plus的内存则只有1GB而已，这样就容易导致客户端crash。嗯，perfect。那就验证下是不是真的是这么一回事。
 
 ![before][2]
 
@@ -18,12 +18,14 @@ iPhone6 plus打开H5页面客户端就直接闪退了，根据之前类似经验
 - .layout-body(398 * 17538): Secondary layer, home for a group of squashable content.
 
 chrome给的这三个原因没有看的很明白，但是大概的意思是说层级的问题，尤其是有一个negative z-index layer。那就赶紧查一下页面上哪些地方用了负值的z-index，还真找到了有个元素是负z-index。
+
 ![after][4]
 
 .animation-item-2节点是.get-header的后代元素，.layout-body是.get-header的兄弟元素。.animation-item-2的各层父级元素都没有设置z-index，而.animation-item-2有3D变换属性，被单独提升为渲染层了，因此浏览器在渲染的时候就需要将整个html渲染两遍，并将.animation-item-2像汉堡一样夹在中间，这样才能保证渲染效果。
 
 
 现在的问题应该是.animation-item-2的各层父级元素都没有z-index导致.animation-item-2的负值z-index是相对整个html文档了，那是不是给.animation-item-2的某个父级元素设置一个正值z-index就可以了，这样就只是这个父级节点渲染两遍来包裹.animation-item-2元素。于是就给.get-header加上了一个正值z-index，结果帅呆了！
+
 ![after][3]
 
 
