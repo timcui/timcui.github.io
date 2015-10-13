@@ -1,11 +1,29 @@
+<!doctype html>
 <html>
 <head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<!-- Enable responsiveness on mobile devices-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
 	<title>Test zIndex</title>
+
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+	<link rel="shortcut icon" href="/public/favicon.ico">
 </head>
 <body>
-	<div>
-		<div></div>
+	<div class="container1" style="height: 200px; background-color: transparent;z-index: 1;position: relative;">
+		<div class="container11" style="height: 100px; opacity: 0.3; background-color: seashell;"></div>
+		<div class="container12" style="position: relative; z-index: 1; height: 200px;">
+			<div class="negative-block1" style="height: 500px; background-color: brown; z-index: -10; position: absolute; transform: translateZ(0); top: 0px; left: 0px; right: 0px;"></div>
+			<div class="container121" style="height: 100px; background-color: darkred;"></div>
+		</div>
+		<div class="container13" style="height: 200px; background-color: burlywood; opacity: 0.3;"></div>
+		<div class="negative-block2" style="height: 500px; background-color: brown; z-index: -10; position: absolute; transform: translateZ(0); top: 0px; left: 0px; right: 0px;"></div>
 	</div>
-	<div></div>
+	<div class="container2" style="height: 1600px; background-color: beige;">
+		<div class="container21" style="height: 200px; transform: translateZ(0);" class="container21"></div>
+	</div>
 </body>
 </html>
