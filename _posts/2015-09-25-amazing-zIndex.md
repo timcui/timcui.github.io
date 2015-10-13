@@ -21,7 +21,8 @@ iPhone6 plus打开H5页面客户端就直接闪退了，根据之前类似经验
 chrome给的这三个原因没有看的很明白，但是大概的意思是说层级的问题，尤其是有一个negative z-index layer。那就赶紧查一下页面上哪些地方用了负值的z-index，还真找到了有个元素是负z-index。
 ![after][4]
 
-.animation-item-2节点是.get-header的后代元素，.layout-body是.get-header的兄弟元素，而.animation-item-2的各层父级元素都没有设置z-index，而.animation-item-2有3D变换属性，被单独提升为渲染层了，因此浏览器在渲染的时候就需要将整个html渲染两遍，并将.animation-item-2像汉堡一样夹在中间，这样才能保证渲染效果。现在的问题应该是.animation-item-2的个父级元素没有z-index导致.animation-item-2的负值z-index是相对整个html文档了，那是不是给.animation-item-2的某个父级元素设置一个正值z-index就可以了，这样就只是这个父级节点渲染两遍来包裹.animation-item-2元素。于是就给.get-header加上了一个正值z-index，结果帅呆了！
+.animation-item-2节点是.get-header的后代元素，.layout-body是.get-header的兄弟元素。.animation-item-2的各层父级元素都没有设置z-index，而.animation-item-2有3D变换属性，被单独提升为渲染层了，因此浏览器在渲染的时候就需要将整个html渲染两遍，并将.animation-item-2像汉堡一样夹在中间，这样才能保证渲染效果。
+现在的问题应该是.animation-item-2的个父级元素没有z-index导致.animation-item-2的负值z-index是相对整个html文档了，那是不是给.animation-item-2的某个父级元素设置一个正值z-index就可以了，这样就只是这个父级节点渲染两遍来包裹.animation-item-2元素。于是就给.get-header加上了一个正值z-index，结果帅呆了！
 ![after][3]
 
 
