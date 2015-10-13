@@ -22,12 +22,15 @@ chrome给的这三个原因没有看的很明白，但是大概的意思是说�
 ![after][4]
 
 .animation-item-2节点是.get-header的后代元素，.layout-body是.get-header的兄弟元素。.animation-item-2的各层父级元素都没有设置z-index，而.animation-item-2有3D变换属性，被单独提升为渲染层了，因此浏览器在渲染的时候就需要将整个html渲染两遍，并将.animation-item-2像汉堡一样夹在中间，这样才能保证渲染效果。
-现在的问题应该是.animation-item-2的个父级元素没有z-index导致.animation-item-2的负值z-index是相对整个html文档了，那是不是给.animation-item-2的某个父级元素设置一个正值z-index就可以了，这样就只是这个父级节点渲染两遍来包裹.animation-item-2元素。于是就给.get-header加上了一个正值z-index，结果帅呆了！
+
+
+现在的问题应该是.animation-item-2的各层父级元素都没有z-index导致.animation-item-2的负值z-index是相对整个html文档了，那是不是给.animation-item-2的某个父级元素设置一个正值z-index就可以了，这样就只是这个父级节点渲染两遍来包裹.animation-item-2元素。于是就给.get-header加上了一个正值z-index，结果帅呆了！
 ![after][3]
 
 
 ###解决crash
 从这个问题可以得出如下结论：
+
 1. iPhone6 plus也不是神一样的存在了，也会存在ip6 plus only的问题；
 2. 浏览器会自动根据一系列原则将某些元素单独提升为渲染层来提升渲染性能；
 3. 如果一个容器里有后代元素拥有负的z-index和其他元素，并且该元素是独立渲染层，则该容器也会被提升为独立渲染层，而其他兄弟元素也会生成一个独立渲染层；
